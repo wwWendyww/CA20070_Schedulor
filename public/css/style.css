@@ -1,0 +1,34 @@
+/*  
+    BCS3453 [PROJECT]-SEMESTER 2324/1
+    Student ID: CA20070
+    Student Name: Wendy Loh Li Wen
+ */
+
+body {
+    font-size: 15px;
+}
+
+.logo {
+    font-family: "Fuggles", serif;
+    font-size: 2rem;
+}
+
+.slogan {
+    font-family: "Adamina", serif;
+    font-size: 2rem;
+    color: black;
+}
+
+.home .introduction {
+    font-family: "abhaya libre", Times, serif;
+    font-size: 20px;
+    color: grey;
+}
+
+.subscription {
+    font-family: "Adamina", Times, serif;
+}
+
+.pagetitle {
+    font-family: "Alegreya Sans SC", serif;
+}
