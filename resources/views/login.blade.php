@@ -73,7 +73,7 @@ Login | Schedulor
                         New User?
                         <br>
                     </p>
-                    <a class="btn border" href="/login/google">Sign up With Google</a>
+                    <a class="btn border" href="/auth/google">Login With Google</a>
                     <a class="btn border" onclick="" href="/register">Sign up With Email</a>
 
                 </div>

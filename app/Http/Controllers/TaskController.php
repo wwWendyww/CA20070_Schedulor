@@ -20,7 +20,7 @@ class TaskController extends Controller
 							if($group->isEmpty()){
 					$group = Groups::where('member2_id', '=', auth()->user()->id)->get();
 							} 	
-								if ($request !== '') {
+								if ($request->search !== null) {
 												$data = DB::table('tasks')
 																->select('*')
 																->where('user_id', auth()->user()->id)
@@ -71,33 +71,5 @@ class TaskController extends Controller
 								return redirect('/task')->with('success', 'Task is Deleted');
 				}
 
-				public function addGroup(Request $request){
-
-					
-						$member1 = User::where('user_email', '=', $request->member1)->get();
-						$member2 = User::where('user_email', '=',$request->member2)->get();
-
-						if($member1->isEmpty()||$member2->isEmpty()){
-						return redirect()->back()->with('addGroupError','Please insert existed user');
-						}
-
-						if($member1[0]->id === auth()->user()->id || $member2[0]->id ===auth()->user()->id){
-						return redirect()->back()->with('addGroupError','Please do not insert same email');
-						}
-
-						if(!$member1->isEmpty()||!$member2->isEmpty()){
-						$create = Groups::firstOrCreate([
-							'user_id' => auth()->user()->id,
-							'group_name'	=> $request->group_name,
-							'group_description'	=>$request->group_description,
-							'member1_id' => $member1[0]->id,
-							'member2_id'=>$member2[0]->id
-					]);
-					}
-					else{
-						return redirect()->back()->with('addGroupError','Please Fill in all Information');
-					}
-
-					return redirect('/grouptask');	
-				}
+				
 }

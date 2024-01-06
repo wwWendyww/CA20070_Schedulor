@@ -12,6 +12,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GroupTasksController;
+use App\Http\Controllers\GroupController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -30,18 +31,9 @@ Route::get('/', function () {
 				return view('home');
 })->name('home');
 
-Route::get('/login', function () {
-				return view('login');
-})->name('login');
 
 Route::get('/subscription', [SubscriptionController::class, 'display'])->name('subscription');
-
-// Auth::routes();
-
-Route::get('/payment', function () {
-				return view('payment');
-})->name('payment');
-
+Route::get('/logout', [LoginController::class, 'logout']);
 
 
 Route::middleware(['guest'])->group(function () {
@@ -53,10 +45,17 @@ Route::middleware(['guest'])->group(function () {
 				})->name('register');
 				Route::post('/register', [RegisterController::class, 'createUser'])->middleware('unique.email');
 				Route::post('/login', [LoginController::class, 'login']);
-				Route::get('/logout', [LoginController::class, 'logout']);
 
 				Route::get('/shareappointment/{id}', [ClientController::class, 'clientForm']);
 				Route::post('/shareappointment/{id}', [ClientController::class, 'bookAppointment']);
+
+				Route::get('/resetpassword', [UserController::class,'showForgetPassword']);
+				Route::post('/updatePassword', [UserController::class,'updatePassword']);
+												
+Route::get('/auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
+
+
 });
 
 Route::middleware(['authorize'])->group(function () {
@@ -65,13 +64,14 @@ Route::middleware(['authorize'])->group(function () {
 				Route::post('/submittask', [TaskController::class, 'createTask']);
 				Route::get('/deletetask/{id}', [TaskController::class, 'deleteTask']);
 
-				Route::get('/profile', [UserController::class, 'userProfile'])->name('profile');
 
-				Route::get('/grouptask', [GroupTasksController::class, 'viewGroup']);
-				Route::get('/deletegroup/{id}', [GroupTasksController::class, 'deleteGroup']);
+				Route::get('/grouptask', [GroupController::class, 'viewGroup']);
+				Route::post('/submitgrouptask/{id}', [GroupTasksController::class, 'addGroupTask']);
 
 				Route::get('/payment', [PaymentController::class, 'paymentPage'])->name('payment');
 				Route::post('/paymentprocess', [PaymentController::class, 'paymentProcess']);
+
+
 });
 
 Route::middleware(['authorize' ,'user'])->group(function () {
@@ -88,8 +88,8 @@ Route::middleware(['authorize', 'subscriber'])->group(function () {
 				Route::get('/appointment', [AppointmentController::class, 'appointmentList'])->name('apointment');
 				Route::post('/submitappointment', [AppointmentController::class, 'createAppointment']);
 				Route::get('/deleteappointment/{id}', [AppointmentController::class, 'deleteAppointment']);
-				Route::post('/addgroup', [TaskController::class, 'addGroup']);
-				Route::post('/submitgrouptask/{id}', [GroupTasksController::class, 'addGroupTask']);
+				Route::post('/addgroup', [GroupController::class, 'addGroup']);
+				Route::get('/deletegroup/{id}', [GroupController::class, 'deleteGroup']);
 				Route::get('/deletegrouptask/{id}', [GroupTasksController::class, 'deleteGroupTask']);
 });
 
@@ -107,7 +107,3 @@ Route::middleware(['authorize', 'admin'])->group(function () {
 
 
 });
-
-
-Route::get('/auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
-Route::get('/auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);

@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ClientAppointments;
+use App\Models\Appointments;
 
 class ClientController extends Controller
 {
     public function clientForm($id){
+        $existAppointment = Appointments::where('appointment_id' ,'=', $id)->get();
+        if($existAppointment->isEmpty()){
+        return redirect('/login')->with('error', 'Appointment Not Found');
+        }
+        
         return view('bookAppointment')->with("id", $id);
     }
 
@@ -23,6 +29,8 @@ class ClientController extends Controller
         if ($existingAppointment) {
             return redirect()->back()->with('error', 'Appointment already booked.');
         }
+
+        
 
 
         ClientAppointments::create([

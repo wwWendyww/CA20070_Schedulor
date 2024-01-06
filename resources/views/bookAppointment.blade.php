@@ -4,7 +4,7 @@ Student Name: Wendy Loh Li Wen
 --}}
 @extends('layouts.parent')
 @section('title')
-Login | Schedulor
+Booking | Schedulor
 @endsection
 @section('content')
 <div class="container">

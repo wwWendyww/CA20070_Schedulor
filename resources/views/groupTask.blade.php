@@ -8,32 +8,15 @@ Group Task | Schedulor
 @endsection
 @section('content')
 
-<div class="row justify-content-center">
-    {{-- search --}}
-    <div class="col-6 ">
-        <h4 class="pagetitle">Group Task List</h4>
-        <form class="d-flex " role="search">
-            <div class="form-group form-floating w-100 " method="GET">
-                <input type="datetime" name="search" id="search" class="form-control" type="search">
-                <label class="form-label" for="search">Search Group Task</label>
-            </div>
-            <button type="submit" class="btn"><i class="bi bi-search"></i></button>
-        </form>
-    </div>
-</div>
+
 <div class="row m-3">
     <div class="col-2 border p-2 ">
         <!-- Modal trigger button -->
-        @if(auth()->user()->subscription=='free')
-        <button class="btn btn-primary w-100 my-3" type="button" onclick="subscribe()"> <i
-                class="bi bi-plus-circle"></i>&nbsp;Task</button>
-        @else
-
+       
 
         <button class="btn btn-primary w-100" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <i
+            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i
                 class="bi bi-plus-circle"></i>&nbsp;Task</button>
-        @endif
 
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -83,10 +66,7 @@ Group Task | Schedulor
             <strong>{{session('error')}}</strong>
         </div>
         @endif
-        @if(auth()->user()->subscription=='free')
-        <button class="btn btn-primary w-100 my-3" type="button" onclick="subscribe()"> <i
-                class="bi bi-plus-circle"></i>&nbsp;Group</button>
-        @endif
+     
         @if($data !== [])
         <div class="my-3">
 
@@ -111,9 +91,12 @@ Group Task | Schedulor
             </table>
         </div>
         @endif
-
-        <a href="/deletegroup/{{$group_id}}" class="btn btn-danger">Delete Group</a>
-        <script>
+@if(auth()->user()->subscription=="free")
+<button class="btn btn-danger w-100" onclick="subscribe()">Delete Group <i class="bi bi-gem"></i></button>
+@else
+<a href="/deletegroup/{{$group_id}}" class="btn btn-danger w-100">Delete Group</a>
+            @endif
+<script>
             const myModal = new bootstrap.Modal(
                 document.getElementById("modalId"),
                 options,
@@ -141,9 +124,15 @@ Group Task | Schedulor
 
                         </td>
                         <td class="text-end">
+                            @if(auth()->user()->subscription == 'free')
+                            <button onclick="subscribe()" class="btn"><i
+                                class="bi bi-trash3"></i></button>
+                        &nbsp;
+                            @else
                             <a href="/deletegrouptask/{{$item->grouptask_id}}" class="btn"><i
-                                    class="bi bi-trash3"></i></a>
-                            &nbsp;
+                                class="bi bi-trash3"></i></a>
+                                @endif
+                                &nbsp;
                         </td>
                     </tr>
                     @endforeach

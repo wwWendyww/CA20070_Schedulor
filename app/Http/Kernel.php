@@ -66,7 +66,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         'unique.email' => \App\Http\Middleware\CheckRegisteredEmail::class,
-        'check.credentials' => \App\Http\Middleware\CheckUserCredentials::class,
+        'check.credentials' => \App\Http\Middleware\CheckUserCredentials::class,      
         'authorize' => \App\Http\Middleware\CheckAuthorization::class,
         'guest'=> \App\Http\Middleware\checkGuest::class,
         'subscriber'=> \App\Http\Middleware\checkSubscription::class,

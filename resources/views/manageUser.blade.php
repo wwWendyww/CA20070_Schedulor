@@ -4,7 +4,7 @@ Student Name: Wendy Loh Li Wen
 --}}
 @extends('layouts.parent')
 @section('title')
-Task List | Schedulor
+Manage Admin | Schedulor
 @endsection
 @section('content')
 

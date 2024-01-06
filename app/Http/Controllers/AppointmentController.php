@@ -13,7 +13,7 @@ class AppointmentController extends Controller
 				public function appointmentList(Request $request)
 				{
 								$user_id = Auth::user()->id;
-								if ($request->search !== '') {
+								if ($request->search !== null) {
 												$data = DB::table('appointments')
 																->select('*')
 																->where('user_id', $user_id)

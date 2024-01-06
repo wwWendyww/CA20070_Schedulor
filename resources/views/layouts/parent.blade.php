@@ -29,7 +29,7 @@ Student Name: Wendy Loh Li Wen
         <header class="header">
             <nav class="navbar navbar-expand-sm navbar-light ">
                 <div class="container-fluid">
-                    <a class="navbar-brand logo" href="#">ScheduLor</a>
+                    <a class="navbar-brand logo">ScheduLor</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarID"
                         aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
