@@ -52,3 +52,8 @@ class User extends Authenticatable
     return $this->user_password;
 }
 }
+
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */

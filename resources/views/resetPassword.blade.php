@@ -25,7 +25,7 @@ Password Recovery | Schedulor
 
                     <div class="form-group mb-3">
                         <label for="user_name" class="form-label">Username</label>
-                        <input id="user_name" type="email" class="form-control" name="user_name" required
+                        <input id="user_name" type="input" class="form-control" name="user_name" required
                             autocomplete="email" autofocus>
                     </div>
 

@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */
 class GoogleLoginController extends Controller
 {
     public function redirectToGoogle()

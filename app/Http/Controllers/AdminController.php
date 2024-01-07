@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */
 class AdminController extends Controller
 {
 				public function showAdmin(Request $request)

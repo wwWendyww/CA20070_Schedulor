@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Payments;
 
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */
 class PaymentController extends Controller
 {
 				public function paymentPage()

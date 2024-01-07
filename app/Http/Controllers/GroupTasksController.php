@@ -9,6 +9,10 @@ use App\Models\GroupTasks;
 use App\Models\Groups;
 use Illuminate\Support\Facades\Route;
 
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */
 class GroupTasksController extends Controller
 {
 				public function addGroupTask(Request $request, $id)

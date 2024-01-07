@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Models\User;
-
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */
 
 class CheckRegisteredEmail
 {
@@ -20,7 +23,6 @@ class CheckRegisteredEmail
     {
         $checkEmail = User::where('user_email', $request->input('user_email'))->exists();
         if ($checkEmail) {
-            // Redirect back or perform any other action as needed
             return redirect()->back()->with('error', 'Email is already registered.');
         }
 

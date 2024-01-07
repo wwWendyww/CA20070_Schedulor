@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 
 
-
+/* BCS3453 [PROJECT]-SEMESTER 2324/1
+Student ID: CA20070
+Student Name: Wendy Loh Li Wen
+	 */
 class GroupController extends Controller
 {
 				public function viewGroup(Request $request)

@@ -17,7 +17,7 @@ Subscription Plan | Schedulor
 <div class="mb-3 d-flex flex-row justify-content-center gap-5 flex-fill ">
     <div class="card w-50">
         <div class="card-body p-4">
-            <h5 class="card-title">{{ucfirst($data[0]->subscription_package)}}</h5>
+            <h5 class="card-title">Free</h5>
             <p class="card-subtitle mb-3">Free with limited</p>
             <div class="d-flex flex-fill align-items-center mb-3">
                 <h5 class="py-3">Always Free </h5>
@@ -32,10 +32,10 @@ Subscription Plan | Schedulor
     </div>
     <div class="card w-50">
         <div class="card-body p-4">
-            <h5 class="card-title">{{ucfirst($data[1]->subscription_package)}}</h5>
+            <h5 class="card-title">Premium</h5>
             <p class="card-subtitle mb-3">Enjoy with unlimited!</p>
             <div class="d-flex flex-fill align-items-center mb-3">
-                <h5 class="py-3">RM{{$data[1]->subscription_price}}/lifetime</h5>
+                <h5 class="py-3">RM10/lifetime</h5>
                 @if(!auth()->check())
                 <a class="btn btn-dark d-inline ms-auto w-50" href="/payment">Get Start</a>
                 @else
