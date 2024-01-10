@@ -29,6 +29,7 @@ class ClientController extends Controller
             'client_phone' => $request->client_phone,                    
              ])->first();
 
+
         if ($existingAppointment) {
             return redirect()->back()->with('error', 'Appointment already booked.');
         }

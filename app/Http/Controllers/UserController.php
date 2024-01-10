@@ -27,12 +27,13 @@ class UserController extends Controller
 				public function editProfile(Request $request, $id)
 				{
 								$data = User::find($id);
-								$name = $request->input('name');
-								$email = $request->input('email');
+								$data->user_name = $request->input('name');
+								$data->user_email = $request->input('email');
 								if ($request->filled('password')) {
-												$user_password = bcrypt($request->input('password'));
+												$data->user_password = bcrypt($request->input('password'));
 								}
 								$data->save();
+								
 								return redirect()
 												->route('profile')
 												->with('success', 'Updated successfully.');
