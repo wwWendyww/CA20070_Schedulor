@@ -7,7 +7,6 @@ Appointment | Schedulor
     {{-- search --}}
     <div class="col-6 ">
         <h4 class="pagetitle">Appointment</h4>
-
         <form class="d-flex " role="search" action="" method="GET">
             <div class="form-group form-floating w-100 ">
                 <input type="datetime" name="search" id="search" class="form-control" type="search">
@@ -63,7 +62,6 @@ Appointment | Schedulor
         <div class='table-responsive my-4'>
             <h4 class="pagetitle">Appoinment List</h4>
             <table class="table ">
-
                 <tbody>
                     @foreach (session('clientData') as $item)
                     <tr>

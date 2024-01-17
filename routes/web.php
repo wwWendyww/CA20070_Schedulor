@@ -62,7 +62,7 @@ Route::get('/auth/google/callback', [GoogleLoginController::class, 'handleGoogle
 
 });
 
-Route::middleware(['authorize'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 				// Routes accessible only to authorized users
 				Route::get('/task', [TaskController::class, 'taskList'])->name('task');
 				Route::post('/submittask', [TaskController::class, 'createTask']);
@@ -78,31 +78,31 @@ Route::middleware(['authorize'])->group(function () {
 
 });
 
-Route::middleware(['authorize' ,'user'])->group(function () {
+Route::middleware(['auth' ,'user'])->group(function () {
 				// Routes accessible only to authorized users
-				
 				Route::get('/profile', [UserController::class, 'userProfile'])->name('profile');
 				Route::put('/editprofile/{id}', [UserController::class, 'editProfile'])->name('editProfile');
 
 });
 
-
-Route::middleware(['authorize', 'subscriber'])->group(function () {
+Route::middleware(['auth', 'subscriber'])->group(function () {
 				Route::get('/checkappointment/{id}', [AppointmentController::class, 'checkAppointment']);
 				Route::get('/appointment', [AppointmentController::class, 'appointmentList'])->name('apointment');
 				Route::post('/submitappointment', [AppointmentController::class, 'createAppointment']);
 				Route::get('/deleteappointment/{id}', [AppointmentController::class, 'deleteAppointment']);
+
 				Route::post('/addgroup', [GroupController::class, 'addGroup']);
 				Route::get('/deletegroup/{id}', [GroupController::class, 'deleteGroup']);
 				Route::get('/deletegrouptask/{id}', [GroupTasksController::class, 'deleteGroupTask']);
 });
 
-Route::middleware(['authorize', 'admin'])->group(function () {
+Route::middleware(['auth', 'admin'])->group(function () {
 
 	Route::get('/adminprofile', [UserController::class, 'adminprofile'])->name('adminprofile');
 
 	Route::get('/manageadmin',[AdminController::class,'showAdmin']);
 	Route::post('/addadmin',[AdminController::class,'addAdmin']);
+	
 	Route::get('/deleteadmin/{id}',[AdminController::class,'deleteAdmin']);
 	Route::put('/editadminprofile/{id}',[AdminController::class,'updateAdmin']);
 

@@ -60,7 +60,5 @@ class PaymentController extends Controller
 					$data = User::where("id",'=',$id);
 					$data->update(['subscription'=>'premium']);
 					return redirect()->back()->with("success",'User Subscribe +1');
-
-
 				}
 }

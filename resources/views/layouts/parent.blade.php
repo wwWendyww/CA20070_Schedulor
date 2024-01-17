@@ -16,7 +16,6 @@ Student Name: Wendy Loh Li Wen
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
 
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fuggles">
     <link href="https://fonts.bunny.net/css?family=Adamina|abhaya-libre|alegreya-sans-sc" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">

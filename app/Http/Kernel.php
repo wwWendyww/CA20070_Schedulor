@@ -54,10 +54,9 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
@@ -67,8 +66,6 @@ class Kernel extends HttpKernel
 
         'unique.email' => \App\Http\Middleware\CheckRegisteredEmail::class,
         'check.credentials' => \App\Http\Middleware\CheckUserCredentials::class,      
-        'authorize' => \App\Http\Middleware\CheckAuthorization::class,
-        'guest'=> \App\Http\Middleware\checkGuest::class,
         'subscriber'=> \App\Http\Middleware\checkSubscription::class,
         'admin'=> \App\Http\Middleware\checkAdmin::class,
         'user'=> \App\Http\Middleware\checkUser::class
